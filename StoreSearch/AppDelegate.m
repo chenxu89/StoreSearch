@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "SearchViewController.h"
 
 @interface AppDelegate ()
 
@@ -15,8 +16,15 @@
 @implementation AppDelegate
 
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+- (BOOL)application:(UIApplication *)application
+didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    //This is boilerplate code that you’ll find in just about any app that uses nibs.
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.searchViewController = [[SearchViewController alloc] initWithNibName:@"SearchViewController" bundle:nil];
+    self.window.rootViewController = self.searchViewController;
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 

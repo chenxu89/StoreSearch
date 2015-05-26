@@ -9,11 +9,11 @@
 /* Begin PBXBuildFile section */
 		2D63F19B1B152F6000E121DD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D63F19A1B152F6000E121DD /* main.m */; };
 		2D63F19E1B152F6000E121DD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D63F19D1B152F6000E121DD /* AppDelegate.m */; };
-		2D63F1A11B152F6000E121DD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D63F1A01B152F6000E121DD /* ViewController.m */; };
-		2D63F1A41B152F6000E121DD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D63F1A21B152F6000E121DD /* Main.storyboard */; };
 		2D63F1A61B152F6000E121DD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D63F1A51B152F6000E121DD /* Images.xcassets */; };
 		2D63F1A91B152F6000E121DD /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D63F1A71B152F6000E121DD /* LaunchScreen.xib */; };
 		2D63F1B51B152F6000E121DD /* StoreSearchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D63F1B41B152F6000E121DD /* StoreSearchTests.m */; };
+		2D63F1C11B1531DA00E121DD /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D63F1BF1B1531DA00E121DD /* SearchViewController.m */; };
+		2D63F1C21B1531DA00E121DD /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D63F1C01B1531DA00E121DD /* SearchViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,14 +32,14 @@
 		2D63F19A1B152F6000E121DD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2D63F19C1B152F6000E121DD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2D63F19D1B152F6000E121DD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		2D63F19F1B152F6000E121DD /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		2D63F1A01B152F6000E121DD /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		2D63F1A31B152F6000E121DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2D63F1A51B152F6000E121DD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		2D63F1A81B152F6000E121DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		2D63F1AE1B152F6000E121DD /* StoreSearchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StoreSearchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D63F1B31B152F6000E121DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2D63F1B41B152F6000E121DD /* StoreSearchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StoreSearchTests.m; sourceTree = "<group>"; };
+		2D63F1BE1B1531DA00E121DD /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		2D63F1BF1B1531DA00E121DD /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		2D63F1C01B1531DA00E121DD /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,12 +83,12 @@
 			children = (
 				2D63F19C1B152F6000E121DD /* AppDelegate.h */,
 				2D63F19D1B152F6000E121DD /* AppDelegate.m */,
-				2D63F19F1B152F6000E121DD /* ViewController.h */,
-				2D63F1A01B152F6000E121DD /* ViewController.m */,
-				2D63F1A21B152F6000E121DD /* Main.storyboard */,
 				2D63F1A51B152F6000E121DD /* Images.xcassets */,
 				2D63F1A71B152F6000E121DD /* LaunchScreen.xib */,
 				2D63F1981B152F6000E121DD /* Supporting Files */,
+				2D63F1BE1B1531DA00E121DD /* SearchViewController.h */,
+				2D63F1BF1B1531DA00E121DD /* SearchViewController.m */,
+				2D63F1C01B1531DA00E121DD /* SearchViewController.xib */,
 			);
 			path = StoreSearch;
 			sourceTree = "<group>";
@@ -199,9 +199,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2D63F1A41B152F6000E121DD /* Main.storyboard in Resources */,
 				2D63F1A91B152F6000E121DD /* LaunchScreen.xib in Resources */,
 				2D63F1A61B152F6000E121DD /* Images.xcassets in Resources */,
+				2D63F1C21B1531DA00E121DD /* SearchViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,8 +219,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2D63F1A11B152F6000E121DD /* ViewController.m in Sources */,
 				2D63F19E1B152F6000E121DD /* AppDelegate.m in Sources */,
+				2D63F1C11B1531DA00E121DD /* SearchViewController.m in Sources */,
 				2D63F19B1B152F6000E121DD /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -244,14 +244,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		2D63F1A21B152F6000E121DD /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2D63F1A31B152F6000E121DD /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		2D63F1A71B152F6000E121DD /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
