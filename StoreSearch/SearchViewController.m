@@ -8,6 +8,10 @@
 
 #import "SearchViewController.h"
 #import "SearchResult.h"
+#import "SearchResultCell.h"
+
+static NSString * const SearchResultCellIdentifier = @"SearchResultCell";
+static NSString * const NothingFoundCellIdentifier = @"NothingFoundCell";
 
 @interface SearchViewController () <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate>
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
@@ -22,8 +26,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    //Now the first row will always be visible
     self.tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
+    
+    //load the nib
+    UINib *cellNib = [UINib nibWithNibName:SearchResultCellIdentifier bundle:nil];
+    //register this nib for a reuse identifier
+    [self.tableView registerNib:cellNib forCellReuseIdentifier:SearchResultCellIdentifier];
+    
+    UINib *nothingFoundCellNib = [UINib nibWithNibName:NothingFoundCellIdentifier bundle:nil];
+    [self.tableView registerNib:nothingFoundCellNib forCellReuseIdentifier:NothingFoundCellIdentifier];
+    
+    self.tableView.rowHeight = 80;
 }
 
 #pragma mark - UITableViewDataSource
@@ -43,26 +57,16 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *cellIdentifier = @"SearchResultCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc]
-                initWithStyle:UITableViewCellStyleSubtitle
-                reuseIdentifier:cellIdentifier];
-    }
-    
-    
-    if ([_searchResults count] == 0) {
-        cell.textLabel.text = @"(Nothing found)";
-        cell.detailTextLabel.text = @"";
+    if ([_searchResults count] == 0){
+        return [tableView dequeueReusableCellWithIdentifier:NothingFoundCellIdentifier forIndexPath:indexPath];
     }else{
+        SearchResultCell *cell = (SearchResultCell *)[tableView dequeueReusableCellWithIdentifier:SearchResultCellIdentifier forIndexPath:indexPath];
         SearchResult *searchResult = _searchResults[indexPath.row];
-        cell.textLabel.text = searchResult.name;
-        cell.detailTextLabel.text = searchResult.artistName;
+        cell.nameLabel.text = searchResult.name;
+        cell.artistNameLabel.text = searchResult.artistName;
+        
+        return cell;
     }
-
-    
-    return cell;
 }
 
 #pragma mark - UITableViewDelegate

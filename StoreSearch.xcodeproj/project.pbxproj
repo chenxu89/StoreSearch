@@ -15,6 +15,9 @@
 		2D63F1C11B1531DA00E121DD /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D63F1BF1B1531DA00E121DD /* SearchViewController.m */; };
 		2D63F1C21B1531DA00E121DD /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D63F1C01B1531DA00E121DD /* SearchViewController.xib */; };
 		2D63F1C51B155F2800E121DD /* SearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D63F1C41B155F2800E121DD /* SearchResult.m */; };
+		2D63F1C71B157E5E00E121DD /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D63F1C61B157E5E00E121DD /* SearchResultCell.xib */; };
+		2D63F1CA1B15875B00E121DD /* SearchResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D63F1C91B15875B00E121DD /* SearchResultCell.m */; };
+		2D63F1CC1B1592BC00E121DD /* NothingFoundCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D63F1CB1B1592BC00E121DD /* NothingFoundCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +46,10 @@
 		2D63F1C01B1531DA00E121DD /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 		2D63F1C31B155F2800E121DD /* SearchResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResult.h; sourceTree = "<group>"; };
 		2D63F1C41B155F2800E121DD /* SearchResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResult.m; sourceTree = "<group>"; };
+		2D63F1C61B157E5E00E121DD /* SearchResultCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchResultCell.xib; sourceTree = "<group>"; };
+		2D63F1C81B15875B00E121DD /* SearchResultCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultCell.h; sourceTree = "<group>"; };
+		2D63F1C91B15875B00E121DD /* SearchResultCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultCell.m; sourceTree = "<group>"; };
+		2D63F1CB1B1592BC00E121DD /* NothingFoundCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NothingFoundCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +101,10 @@
 				2D63F1C01B1531DA00E121DD /* SearchViewController.xib */,
 				2D63F1C31B155F2800E121DD /* SearchResult.h */,
 				2D63F1C41B155F2800E121DD /* SearchResult.m */,
+				2D63F1C61B157E5E00E121DD /* SearchResultCell.xib */,
+				2D63F1C81B15875B00E121DD /* SearchResultCell.h */,
+				2D63F1C91B15875B00E121DD /* SearchResultCell.m */,
+				2D63F1CB1B1592BC00E121DD /* NothingFoundCell.xib */,
 			);
 			path = StoreSearch;
 			sourceTree = "<group>";
@@ -206,6 +217,8 @@
 			files = (
 				2D63F1A91B152F6000E121DD /* LaunchScreen.xib in Resources */,
 				2D63F1A61B152F6000E121DD /* Images.xcassets in Resources */,
+				2D63F1C71B157E5E00E121DD /* SearchResultCell.xib in Resources */,
+				2D63F1CC1B1592BC00E121DD /* NothingFoundCell.xib in Resources */,
 				2D63F1C21B1531DA00E121DD /* SearchViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -226,6 +239,7 @@
 			files = (
 				2D63F19E1B152F6000E121DD /* AppDelegate.m in Sources */,
 				2D63F1C11B1531DA00E121DD /* SearchViewController.m in Sources */,
+				2D63F1CA1B15875B00E121DD /* SearchResultCell.m in Sources */,
 				2D63F1C51B155F2800E121DD /* SearchResult.m in Sources */,
 				2D63F19B1B152F6000E121DD /* main.m in Sources */,
 			);
