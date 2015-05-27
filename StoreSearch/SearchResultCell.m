@@ -10,8 +10,13 @@
 
 @implementation SearchResultCell
 
-- (void)awakeFromNib {
+//The awakeFromNib method is called immediately after this cell object has been loaded from the nib.
+- (void)awakeFromNib
+{
     // Initialization code
+    UIView *selectedView = [[UIView alloc] initWithFrame:CGRectZero];
+    selectedView.backgroundColor = [UIColor colorWithRed:20/255.0f green:160/255.0f blue:160/255.0f alpha:0.5f];
+    self.selectedBackgroundView = selectedView;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

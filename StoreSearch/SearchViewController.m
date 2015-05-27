@@ -38,6 +38,9 @@ static NSString * const NothingFoundCellIdentifier = @"NothingFoundCell";
     [self.tableView registerNib:nothingFoundCellNib forCellReuseIdentifier:NothingFoundCellIdentifier];
     
     self.tableView.rowHeight = 80;
+    
+    //the keyboard will be immediately visible when you start the app
+    [self.searchBar becomeFirstResponder];
 }
 
 #pragma mark - UITableViewDataSource
@@ -76,7 +79,6 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
-
 /*
 //self-produced, not necessary
 - (NSIndexPath *)tableView:(UITableView *)tableView
