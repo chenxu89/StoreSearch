@@ -9,6 +9,7 @@
 #import "SearchViewController.h"
 #import "SearchResult.h"
 #import "SearchResultCell.h"
+#import <AFNetworking/AFNetworking.h>
 
 static NSString * const SearchResultCellIdentifier = @"SearchResultCell";
 static NSString * const NothingFoundCellIdentifier = @"NothingFoundCell";
@@ -23,8 +24,18 @@ static NSString * const LoadingCellIdentifier = @"LoadingCell";
 {
     NSMutableArray *_searchResults;
     BOOL _isLoading;
+    NSOperationQueue *_queue;
 }
 
+- (id)initWithNibName:(NSString *)nibNameOrNil
+               bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        _queue = [[NSOperationQueue alloc] init];
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -158,38 +169,28 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
         
         _searchResults = [NSMutableArray arrayWithCapacity:10];
         
-        dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+        NSURL *url = [self urlWithSearchText:searchBar.text];
+        NSURLRequest *request = [NSURLRequest requestWithURL:url];
         
-        dispatch_async(queue, ^{
-            // code that needs to run in the background
-            NSURL *url = [self urlWithSearchText:searchBar.text];
-            NSString *jsonstring = [self performStoreRequestWithURL:url];
-            
-            if (jsonstring == nil) {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    // update the user interface
-                    [self showNetworkError];
-                });
-                return;
-            }
-            
-            NSDictionary *dictionary = [self parseJSON:jsonstring];
-            if (dictionary == nil) {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [self showNetworkError];
-                });
-                return;
-            }
-            
-            [self parseDictionary:dictionary];
-            //sort the search results alphabetically
+        AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+        
+        //AFJSONResponseSerializer not AFHTTPResponseSerializer
+        operation.responseSerializer = [AFJSONResponseSerializer serializer];
+        
+        [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+            [self parseDictionary:responseObject];
             [_searchResults sortUsingSelector:@selector(compareName:)];
             
-            dispatch_async(dispatch_get_main_queue(), ^{
-                _isLoading = NO;
-                [self.tableView reloadData];
-            });
-        });
+            _isLoading = NO;
+            [self.tableView reloadData];
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            [self showNetworkError];
+            
+            _isLoading = NO;
+            [self.tableView reloadData];
+        }];
+        
+        [_queue addOperation:operation];
     }
 }
 
@@ -201,34 +202,6 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
     return url;
 }
 
-- (NSString *)performStoreRequestWithURL:(NSURL *)url
-{
-    NSError *error;
-    NSString *resultString = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:&error];
-    if (resultString == nil) {
-        NSLog(@"Download Error: %@", error);
-        return nil;
-    }
-    return resultString;
-}
-
-- (NSDictionary *)parseJSON:(NSString *)jsonString
-{
-    NSData *data = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
-    
-    NSError *error;
-    id resultObject = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
-    if (resultObject == nil) {
-        NSLog(@"JSON Error: %@", error);
-        return nil;
-    }
-    
-    if (![resultObject isKindOfClass:[NSDictionary class]]) {
-        NSLog(@"JSON Error: Expected dictionary");
-        return nil;
-    }
-    return resultObject;
-}
 
 - (void)parseDictionary:(NSDictionary *)dictionary
 {
