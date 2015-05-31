@@ -10,5 +10,8 @@
 
 @implementation SearchResult
 
-
+- (NSComparisonResult)compareName:(SearchResult *)other
+{
+    return [self.name localizedCompare:other.name];
+}
 @end

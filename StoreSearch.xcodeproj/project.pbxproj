@@ -428,6 +428,7 @@
 				2D63F1BA1B152F6000E121DD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2D63F1BB1B152F6000E121DD /* Build configuration list for PBXNativeTarget "StoreSearchTests" */ = {
 			isa = XCConfigurationList;
@@ -436,6 +437,7 @@
 				2D63F1BD1B152F6000E121DD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

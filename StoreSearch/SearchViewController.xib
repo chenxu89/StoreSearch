@@ -24,7 +24,7 @@
                         <outlet property="delegate" destination="-1" id="hKj-A8-sm4"/>
                     </connections>
                 </tableView>
-                <searchBar contentMode="redraw" fixedFrame="YES" placeholder="App name, artist, song, album, ebook" translatesAutoresizingMaskIntoConstraints="NO" id="x4V-kJ-3G0">
+                <searchBar contentMode="redraw" placeholder="App name, artist, song, album, ebook" translatesAutoresizingMaskIntoConstraints="NO" id="x4V-kJ-3G0">
                     <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                     <textInputTraits key="textInputTraits"/>
                     <connections>
@@ -38,6 +38,9 @@
                 <constraint firstAttribute="trailing" secondItem="R6J-xs-yKg" secondAttribute="trailing" id="Ga8-fH-Rej"/>
                 <constraint firstItem="R6J-xs-yKg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Kww-Dr-4sn"/>
                 <constraint firstItem="R6J-xs-yKg" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Qna-NT-vbQ"/>
+                <constraint firstItem="x4V-kJ-3G0" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="ZRi-1f-Ban"/>
+                <constraint firstAttribute="trailing" secondItem="x4V-kJ-3G0" secondAttribute="trailing" id="led-TV-03W"/>
+                <constraint firstItem="x4V-kJ-3G0" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="pnq-3N-W5f"/>
                 <constraint firstItem="R6J-xs-yKg" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="wjy-D9-TUT"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
