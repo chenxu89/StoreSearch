@@ -164,6 +164,9 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
     if ([searchBar.text length] > 0) {
         [searchBar resignFirstResponder];
         
+        //Cancel the on-going request when the user starts a new one.
+        [_queue cancelAllOperations];
+        
         _isLoading = YES;
         [self.tableView reloadData];
         
@@ -178,14 +181,20 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
         operation.responseSerializer = [AFJSONResponseSerializer serializer];
         
         [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+            
             [self parseDictionary:responseObject];
             [_searchResults sortUsingSelector:@selector(compareName:)];
             
             _isLoading = NO;
             [self.tableView reloadData];
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            [self showNetworkError];
             
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            
+            if (operation.isCancelled) {
+                return ;
+            }
+            
+            [self showNetworkError];
             _isLoading = NO;
             [self.tableView reloadData];
         }];
