@@ -18,6 +18,7 @@ static NSString * const LoadingCellIdentifier = @"LoadingCell";
 @interface SearchViewController () <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate>
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
 @end
 
 @implementation SearchViewController
@@ -40,7 +41,7 @@ static NSString * const LoadingCellIdentifier = @"LoadingCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     //Now the first row will always be visible
-    self.tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
+    self.tableView.contentInset = UIEdgeInsetsMake(108, 0, 0, 0);
     
     //load the nib
     UINib *cellNib = [UINib nibWithNibName:SearchResultCellIdentifier bundle:nil];
@@ -161,8 +162,13 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
-    if ([searchBar.text length] > 0) {
-        [searchBar resignFirstResponder];
+    [self performSearch];
+}
+
+- (void)performSearch
+{
+    if ([self.searchBar.text length] > 0) {
+        [self.searchBar resignFirstResponder];
         
         //Cancel the on-going request when the user starts a new one.
         [_queue cancelAllOperations];
@@ -172,7 +178,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
         
         _searchResults = [NSMutableArray arrayWithCapacity:10];
         
-        NSURL *url = [self urlWithSearchText:searchBar.text];
+        NSURL *url = [self urlWithSearchText:self.searchBar.text category:self.segmentedControl.selectedSegmentIndex];
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
         
         AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
@@ -204,10 +210,21 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 }
 
 - (NSURL *)urlWithSearchText:(NSString *)searchText
+                    category:(NSInteger)category
 {
+    NSString *categoryName;
+    switch (category) {
+        case 0: categoryName = @""; break;
+        case 1: categoryName = @"musicTrack"; break;
+        case 2: categoryName = @"software"; break;
+        case 3: categoryName = @"ebook"; break;
+    }
     NSString *escapedSearchText = [searchText stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    NSString *urlString = [NSString stringWithFormat:@"http://itunes.apple.com/search?term=%@&limit=200", escapedSearchText];
+    
+    NSString *urlString = [NSString stringWithFormat:@"http://itunes.apple.com/search?term=%@&limit=200&entity=%@", escapedSearchText, categoryName];
+    
     NSURL *url = [NSURL URLWithString:urlString];
+    
     return url;
 }
 
@@ -312,6 +329,13 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
                               otherButtonTitles:nil];
     
     [alertView show];
+}
+
+- (IBAction)segmentedChanged:(UISegmentedControl *)sender
+{
+    if (_searchResults != nil) {
+        [self performSearch];
+    }
 }
 
 @end
