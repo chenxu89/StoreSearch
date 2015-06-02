@@ -20,10 +20,9 @@
 
 - (void)drawRect:(CGRect)rect
 {
-    const CGFloat components[8] = { 0.0f, 0.0f, 0.0f, 0.3f, 0.0f, 0.0f, 0.0f, 0.7f };
+    const CGFloat components[8] = { 0.0f, 0.0f, 0.0f, 0.3f, 0.0f, 0.0f, 0.0f, 0.7f};
     const CGFloat locations[2] = { 0.0f, 1.0f };
     
-    //four corners' color
     CGColorSpaceRef space = CGColorSpaceCreateDeviceRGB();
     CGGradientRef gradient = CGGradientCreateWithColorComponents(space, components, locations, 2);
     CGColorSpaceRelease(space);
@@ -37,6 +36,11 @@
     CGContextDrawRadialGradient(context, gradient, point, 0, point, radius, kCGGradientDrawsAfterEndLocation);
     
     CGGradientRelease(gradient);
+}
+
+- (void)dealloc
+{
+    NSLog(@"dealloc %@", self);
 }
 
 @end
