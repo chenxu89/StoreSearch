@@ -32,7 +32,7 @@
                         <outlet property="delegate" destination="-1" id="ltn-om-F1g"/>
                     </connections>
                 </searchBar>
-                <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kvb-b2-G5D">
+                <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kvb-b2-G5D">
                     <rect key="frame" x="0.0" y="64" width="320" height="44"/>
                     <items>
                         <navigationItem id="W7Z-i8-hfs">
@@ -58,10 +58,13 @@
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="R6J-xs-yKg" secondAttribute="bottom" id="DXh-ni-lRA"/>
                 <constraint firstAttribute="trailing" secondItem="R6J-xs-yKg" secondAttribute="trailing" id="Ga8-fH-Rej"/>
+                <constraint firstItem="kvb-b2-G5D" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Kbp-nq-MX9"/>
                 <constraint firstItem="R6J-xs-yKg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Kww-Dr-4sn"/>
+                <constraint firstItem="kvb-b2-G5D" firstAttribute="top" secondItem="x4V-kJ-3G0" secondAttribute="bottom" id="M4S-GB-ydi"/>
                 <constraint firstItem="R6J-xs-yKg" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Qna-NT-vbQ"/>
                 <constraint firstItem="x4V-kJ-3G0" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="ZRi-1f-Ban"/>
                 <constraint firstAttribute="trailing" secondItem="x4V-kJ-3G0" secondAttribute="trailing" id="led-TV-03W"/>
+                <constraint firstAttribute="trailing" secondItem="kvb-b2-G5D" secondAttribute="trailing" id="nDX-LI-iyK"/>
                 <constraint firstItem="x4V-kJ-3G0" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="pnq-3N-W5f"/>
                 <constraint firstItem="R6J-xs-yKg" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="wjy-D9-TUT"/>
             </constraints>
