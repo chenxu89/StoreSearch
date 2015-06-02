@@ -12,6 +12,8 @@
 #import <AFNetworking/UIImageView+AFNetworking.h>
 #import "GradientView.h"
 
+
+
 @interface DetailViewController () <UIGestureRecognizerDelegate>
 @property (nonatomic, weak) IBOutlet UIView *popupView;
 @property (weak, nonatomic) IBOutlet UIImageView *artworkImageView;
@@ -119,18 +121,23 @@
 
 - (IBAction)close:(id)sender
 {
-    [self dismissFromParentViewController];
+    [self dismissFromParentViewControllerWithAnimationType:DetailViewControllerAnimationTypeSlide];
 }
 
-- (void)dismissFromParentViewController
+- (void)dismissFromParentViewControllerWithAnimationType:(DetailViewControllerAnimationType)animationType
 {
     [self willMoveToParentViewController:nil];
     
     //making the pop-up slide down the screen.
-    [UIView animateWithDuration:0.3 animations:^{
-        CGRect rect = self.view.bounds;
-        rect.origin.y += rect.size.height;
-        self.view.frame = rect;
+    [UIView animateWithDuration:0.4f animations:^{
+        if (animationType == DetailViewControllerAnimationTypeSlide) {
+            CGRect rect = self.view.bounds;
+            rect.origin.y += rect.size.height;
+            self.view.frame = rect;
+        }else{
+            self.view.alpha = 0.0f;
+        }
+
         //animate the gradient view fade out.
         _gradientView.alpha = 0.0f;
         

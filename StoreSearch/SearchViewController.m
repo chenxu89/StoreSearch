@@ -11,6 +11,7 @@
 #import "SearchResultCell.h"
 #import <AFNetworking/AFNetworking.h>
 #import "DetailViewController.h"
+#import "LandscapeViewController.h"
 
 static NSString * const SearchResultCellIdentifier = @"SearchResultCell";
 static NSString * const NothingFoundCellIdentifier = @"NothingFoundCell";
@@ -27,6 +28,9 @@ static NSString * const LoadingCellIdentifier = @"LoadingCell";
     NSMutableArray *_searchResults;
     BOOL _isLoading;
     NSOperationQueue *_queue;
+    LandscapeViewController *_lanscapeViewController;
+    UIStatusBarStyle _statusBarStyle;
+    __weak DetailViewController *_detailViewController;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil
@@ -60,7 +64,7 @@ static NSString * const LoadingCellIdentifier = @"LoadingCell";
     cellNib = [UINib nibWithNibName:LoadingCellIdentifier bundle:nil];
     [self.tableView registerNib:cellNib forCellReuseIdentifier:LoadingCellIdentifier];
     
-     
+    _statusBarStyle = UIStatusBarStyleDefault;
 }
 
 #pragma mark - UITableViewDataSource
@@ -116,6 +120,8 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
     controller.searchResult = searchResult;
 
     [controller presentInParentViewController:self];
+    
+    _detailViewController = controller;
 }
 
 //self-produced, not necessary
@@ -314,6 +320,73 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
     if (_searchResults != nil) {
         [self performSearch];
     }
+}
+
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
+                                duration:(NSTimeInterval)duration
+{
+    [super willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
+    
+    if (UIInterfaceOrientationIsPortrait(toInterfaceOrientation)) {
+        [self hideLandscapeViewWithDuration:duration];
+    }else{
+        [self showLandscapeViewWithDuration:duration];
+    }
+}
+
+- (void)showLandscapeViewWithDuration:(NSTimeInterval)duration
+{
+    if (_lanscapeViewController == nil) {
+        
+        _lanscapeViewController = [[LandscapeViewController alloc] initWithNibName:@"LandscapeViewController" bundle:nil];
+        
+        //the order matters, put data transform before view
+        _lanscapeViewController.searchResults = _searchResults;
+        
+        _lanscapeViewController.view.frame = self.view.bounds;
+        _lanscapeViewController.view.alpha = 0.0f;
+        
+        [self.view addSubview:_lanscapeViewController.view];
+        [self addChildViewController:_lanscapeViewController];
+        
+        [UIView animateWithDuration:duration animations:^{
+            _lanscapeViewController.view.alpha = 1.0f;
+            
+            _statusBarStyle = UIStatusBarStyleLightContent;
+            [self setNeedsStatusBarAppearanceUpdate];
+            
+            [self.searchBar resignFirstResponder];
+            
+            [_detailViewController dismissFromParentViewControllerWithAnimationType:DetailViewControllerAnimationTypeFade];
+            
+        } completion:^(BOOL finished) {
+            [_lanscapeViewController didMoveToParentViewController:self];
+        }];
+    }
+}
+
+- (void)hideLandscapeViewWithDuration:(NSTimeInterval)duration
+{
+    if (_lanscapeViewController != nil) {
+        [_lanscapeViewController willMoveToParentViewController:nil];
+        
+        [UIView animateWithDuration:duration animations:^{
+            _lanscapeViewController.view.alpha = 0.0f;
+            
+            _statusBarStyle = UIStatusBarStyleDefault;
+            [self setNeedsStatusBarAppearanceUpdate];
+            
+        } completion:^(BOOL finished) {
+            [_lanscapeViewController.view removeFromSuperview];
+            [_lanscapeViewController removeFromParentViewController];
+            _lanscapeViewController = nil;
+        }];
+    }
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return _statusBarStyle;
 }
 
 @end

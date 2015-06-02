@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2D19C9B71B1D5B3A002A45BB /* GradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D19C9B61B1D5B3A002A45BB /* GradientView.m */; };
+		2D19C9BB1B1D92FF002A45BB /* LandscapeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D19C9B91B1D92FF002A45BB /* LandscapeViewController.m */; };
+		2D19C9BC1B1D92FF002A45BB /* LandscapeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D19C9BA1B1D92FF002A45BB /* LandscapeViewController.xib */; };
 		2D63F19B1B152F6000E121DD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D63F19A1B152F6000E121DD /* main.m */; };
 		2D63F19E1B152F6000E121DD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D63F19D1B152F6000E121DD /* AppDelegate.m */; };
 		2D63F1A61B152F6000E121DD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D63F1A51B152F6000E121DD /* Images.xcassets */; };
@@ -38,6 +40,9 @@
 /* Begin PBXFileReference section */
 		2D19C9B51B1D5B3A002A45BB /* GradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GradientView.h; sourceTree = "<group>"; };
 		2D19C9B61B1D5B3A002A45BB /* GradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GradientView.m; sourceTree = "<group>"; };
+		2D19C9B81B1D92FF002A45BB /* LandscapeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LandscapeViewController.h; sourceTree = "<group>"; };
+		2D19C9B91B1D92FF002A45BB /* LandscapeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LandscapeViewController.m; sourceTree = "<group>"; };
+		2D19C9BA1B1D92FF002A45BB /* LandscapeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LandscapeViewController.xib; sourceTree = "<group>"; };
 		2D63F1951B152F6000E121DD /* StoreSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoreSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D63F1991B152F6000E121DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2D63F19A1B152F6000E121DD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -128,6 +133,9 @@
 				2DC75E241B1C927100411136 /* DetailViewController.xib */,
 				2D19C9B51B1D5B3A002A45BB /* GradientView.h */,
 				2D19C9B61B1D5B3A002A45BB /* GradientView.m */,
+				2D19C9B81B1D92FF002A45BB /* LandscapeViewController.h */,
+				2D19C9B91B1D92FF002A45BB /* LandscapeViewController.m */,
+				2D19C9BA1B1D92FF002A45BB /* LandscapeViewController.xib */,
 			);
 			path = StoreSearch;
 			sourceTree = "<group>";
@@ -263,6 +271,7 @@
 				2DDA4ABB1B1AD41F003299A8 /* LoadingCell.xib in Resources */,
 				2D63F1C71B157E5E00E121DD /* SearchResultCell.xib in Resources */,
 				2D63F1CC1B1592BC00E121DD /* NothingFoundCell.xib in Resources */,
+				2D19C9BC1B1D92FF002A45BB /* LandscapeViewController.xib in Resources */,
 				2D63F1C21B1531DA00E121DD /* SearchViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -320,6 +329,7 @@
 				2D63F1C51B155F2800E121DD /* SearchResult.m in Sources */,
 				2D63F19B1B152F6000E121DD /* main.m in Sources */,
 				2D19C9B71B1D5B3A002A45BB /* GradientView.m in Sources */,
+				2D19C9BB1B1D92FF002A45BB /* LandscapeViewController.m in Sources */,
 				2DC75E251B1C927100411136 /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
