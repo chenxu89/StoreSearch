@@ -43,6 +43,8 @@
     if (self.searchResult != nil) {
         [self updateUI];
     }
+    
+    self.view.backgroundColor = [UIColor clearColor];
 }
 
 - (void)updateUI
