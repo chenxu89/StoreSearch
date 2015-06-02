@@ -109,8 +109,11 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
     
     DetailViewController *controller = [[DetailViewController alloc] initWithNibName:@"DetailViewController" bundle:nil];
     
-    controller.view.frame = self.view.frame;
+    //must put before the line :"controller.view.frame = self.view.frame;"
+    SearchResult *searchResult = _searchResults[indexPath.row];
+    controller.searchResult = searchResult;
     
+    controller.view.frame = self.view.frame;
     [self.view addSubview:controller.view];
     [self addChildViewController:controller];
     [controller didMoveToParentViewController:self];

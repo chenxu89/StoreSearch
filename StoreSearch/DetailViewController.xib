@@ -64,12 +64,19 @@
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E8J-LC-3Gy">
-                            <rect key="frame" x="174" y="230" width="64" height="24"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E8J-LC-3Gy">
+                            <rect key="frame" x="174" y="230" width="60" height="24"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="24" id="MZB-YM-4cT"/>
+                            </constraints>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                            <inset key="contentEdgeInsets" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
                             <state key="normal" title="$9.99">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="openInStore:" destination="-1" eventType="touchUpInside" id="bSr-4h-3fo"/>
+                            </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="XC2-qB-0re">
                             <rect key="frame" x="10" y="110" width="220" height="48"/>
@@ -80,8 +87,10 @@
                     </subviews>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.95000000000000007" colorSpace="calibratedRGB"/>
                     <constraints>
+                        <constraint firstAttribute="trailing" secondItem="E8J-LC-3Gy" secondAttribute="trailing" constant="6" id="EWP-sx-JrF"/>
                         <constraint firstAttribute="width" constant="240" id="W9W-Ao-xZO"/>
                         <constraint firstAttribute="height" constant="260" id="bSa-Pn-Ist"/>
+                        <constraint firstAttribute="bottom" secondItem="E8J-LC-3Gy" secondAttribute="bottom" constant="6" id="tQf-BH-qaK"/>
                     </constraints>
                 </view>
             </subviews>
