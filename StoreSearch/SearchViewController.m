@@ -27,7 +27,7 @@ static NSString * const LoadingCellIdentifier = @"LoadingCell";
 @implementation SearchViewController
 {
     Search *_search;
-    LandscapeViewController *_lanscapeViewController;
+    LandscapeViewController *_landscapeViewController;
     UIStatusBarStyle _statusBarStyle;
     __weak DetailViewController *_detailViewController;
 }
@@ -151,6 +151,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
                                [self showNetworkError];
                            }
                            
+                           [_landscapeViewController searchResultsReceived];
                            [self.tableView reloadData];
      }];
     
@@ -194,21 +195,21 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 
 - (void)showLandscapeViewWithDuration:(NSTimeInterval)duration
 {
-    if (_lanscapeViewController == nil) {
+    if (_landscapeViewController == nil) {
         
-        _lanscapeViewController = [[LandscapeViewController alloc] initWithNibName:@"LandscapeViewController" bundle:nil];
+        _landscapeViewController = [[LandscapeViewController alloc] initWithNibName:@"LandscapeViewController" bundle:nil];
         
         //the order matters, transform data before view
-        _lanscapeViewController.search = _search;
+        _landscapeViewController.search = _search;
         
-        _lanscapeViewController.view.frame = self.view.bounds;
-        _lanscapeViewController.view.alpha = 0.0f;
+        _landscapeViewController.view.frame = self.view.bounds;
+        _landscapeViewController.view.alpha = 0.0f;
         
-        [self.view addSubview:_lanscapeViewController.view];
-        [self addChildViewController:_lanscapeViewController];
+        [self.view addSubview:_landscapeViewController.view];
+        [self addChildViewController:_landscapeViewController];
         
         [UIView animateWithDuration:duration animations:^{
-            _lanscapeViewController.view.alpha = 1.0f;
+            _landscapeViewController.view.alpha = 1.0f;
             
             _statusBarStyle = UIStatusBarStyleLightContent;
             [self setNeedsStatusBarAppearanceUpdate];
@@ -218,26 +219,26 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
             [_detailViewController dismissFromParentViewControllerWithAnimationType:DetailViewControllerAnimationTypeFade];
             
         } completion:^(BOOL finished) {
-            [_lanscapeViewController didMoveToParentViewController:self];
+            [_landscapeViewController didMoveToParentViewController:self];
         }];
     }
 }
 
 - (void)hideLandscapeViewWithDuration:(NSTimeInterval)duration
 {
-    if (_lanscapeViewController != nil) {
-        [_lanscapeViewController willMoveToParentViewController:nil];
+    if (_landscapeViewController != nil) {
+        [_landscapeViewController willMoveToParentViewController:nil];
         
         [UIView animateWithDuration:duration animations:^{
-            _lanscapeViewController.view.alpha = 0.0f;
+            _landscapeViewController.view.alpha = 0.0f;
             
             _statusBarStyle = UIStatusBarStyleDefault;
             [self setNeedsStatusBarAppearanceUpdate];
             
         } completion:^(BOOL finished) {
-            [_lanscapeViewController.view removeFromSuperview];
-            [_lanscapeViewController removeFromParentViewController];
-            _lanscapeViewController = nil;
+            [_landscapeViewController.view removeFromSuperview];
+            [_landscapeViewController removeFromParentViewController];
+            _landscapeViewController = nil;
         }];
     }
 }
