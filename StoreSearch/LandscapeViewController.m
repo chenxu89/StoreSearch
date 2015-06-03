@@ -9,6 +9,7 @@
 #import "LandscapeViewController.h"
 #import "SearchResult.h"
 #import <AFNetworking/UIButton+AFNetworking.h>
+#import "Search.h"
 
 @interface LandscapeViewController () <UIScrollViewDelegate>
 @property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
@@ -74,7 +75,7 @@
     CGFloat halfExtraSpaceHeight = (scrollViewHeight - pageControlHeight - statusBarHeight - rowsPerPage * itemHeight) / 2.0f;
 
     
-    for (SearchResult *searchResult in self.searchResults){
+    for (SearchResult *searchResult in self.search.searchResults){
         
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         
@@ -105,7 +106,7 @@
     
     
     NSUInteger tilesPerPage = columnsPerPage * rowsPerPage;
-    NSUInteger numPages = ceilf([self.searchResults count] / (float)tilesPerPage);
+    NSUInteger numPages = ceilf([self.search.searchResults count] / (float)tilesPerPage);
     
     self.scrollView.contentSize = CGSizeMake(numPages * scrollViewWidth, scrollViewHeight);
     NSLog(@"Number of pages: %ld", (long)numPages);

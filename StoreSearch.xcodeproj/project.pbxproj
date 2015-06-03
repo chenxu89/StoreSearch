@@ -23,6 +23,7 @@
 		2D63F1CC1B1592BC00E121DD /* NothingFoundCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D63F1CB1B1592BC00E121DD /* NothingFoundCell.xib */; };
 		2DC75E251B1C927100411136 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC75E231B1C927100411136 /* DetailViewController.m */; };
 		2DC75E261B1C927100411136 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DC75E241B1C927100411136 /* DetailViewController.xib */; };
+		2DD3D5051B1F0746005E7435 /* Search.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD3D5041B1F0746005E7435 /* Search.m */; };
 		2DDA4ABB1B1AD41F003299A8 /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DDA4ABA1B1AD41F003299A8 /* LoadingCell.xib */; };
 		E070BB668683D9A54472DBBA /* libPods-StoreSearch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 641B2217545A0403AF25339D /* libPods-StoreSearch.a */; };
 /* End PBXBuildFile section */
@@ -65,6 +66,8 @@
 		2DC75E221B1C927100411136 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		2DC75E231B1C927100411136 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		2DC75E241B1C927100411136 /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
+		2DD3D5031B1F0746005E7435 /* Search.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Search.h; sourceTree = "<group>"; };
+		2DD3D5041B1F0746005E7435 /* Search.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Search.m; sourceTree = "<group>"; };
 		2DDA4ABA1B1AD41F003299A8 /* LoadingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingCell.xib; sourceTree = "<group>"; };
 		641B2217545A0403AF25339D /* libPods-StoreSearch.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-StoreSearch.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		94C14715D350891D86B39A4C /* Pods-StoreSearch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoreSearch.release.xcconfig"; path = "Pods/Target Support Files/Pods-StoreSearch/Pods-StoreSearch.release.xcconfig"; sourceTree = "<group>"; };
@@ -121,6 +124,8 @@
 				2D63F1BE1B1531DA00E121DD /* SearchViewController.h */,
 				2D63F1BF1B1531DA00E121DD /* SearchViewController.m */,
 				2D63F1C01B1531DA00E121DD /* SearchViewController.xib */,
+				2DD3D5031B1F0746005E7435 /* Search.h */,
+				2DD3D5041B1F0746005E7435 /* Search.m */,
 				2D63F1C31B155F2800E121DD /* SearchResult.h */,
 				2D63F1C41B155F2800E121DD /* SearchResult.m */,
 				2D63F1C61B157E5E00E121DD /* SearchResultCell.xib */,
@@ -323,6 +328,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2DD3D5051B1F0746005E7435 /* Search.m in Sources */,
 				2D63F19E1B152F6000E121DD /* AppDelegate.m in Sources */,
 				2D63F1C11B1531DA00E121DD /* SearchViewController.m in Sources */,
 				2D63F1CA1B15875B00E121DD /* SearchResultCell.m in Sources */,
