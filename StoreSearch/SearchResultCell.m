@@ -33,7 +33,7 @@
     
     NSString *artistName = searchResult.artistName;
     if (artistName == nil) {
-        artistName = @"Unknown";
+        artistName = NSLocalizedString(@"Unknown", @"SearchResultCell: artistName") ;
     }
     
     NSString *kind = [searchResult kindForDisplay];

@@ -58,7 +58,7 @@
     self.nameLabel.text = self.searchResult.name;
     NSString *artistName = self.searchResult.artistName;
     if (artistName == nil) {
-        artistName = @"Unknown";
+        artistName = NSLocalizedString(@"Unknown", @"DetailViewController: artistName") ;
     }
     self.artistNameLabel.text = artistName;
     self.kindLabel.text = [self.searchResult kindForDisplay];
@@ -70,7 +70,7 @@
     
     NSString *priceText;
     if ([self.searchResult.price floatValue] == 0.0f) {
-        priceText = @"Free";
+        priceText = NSLocalizedString(@"Free", @"DetailViewController: priceText") ;
     }else{
         priceText = [formatter stringFromNumber:self.searchResult.price];
     }

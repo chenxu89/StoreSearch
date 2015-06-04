@@ -20,6 +20,7 @@
 		2D9CD3B31B1FE1E30000353A /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D9CD3B51B1FE1E30000353A /* DetailViewController.xib */; };
 		2D9CD3B81B1FE37F0000353A /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D9CD3BA1B1FE37F0000353A /* SearchResultCell.xib */; };
 		2D9CD3BD1B1FE3C50000353A /* LandscapeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D9CD3BF1B1FE3C50000353A /* LandscapeViewController.xib */; };
+		2DAD04FC1B1FEBC3004F50D7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2DAD04FA1B1FEBC3004F50D7 /* Localizable.strings */; };
 		2DC75E251B1C927100411136 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC75E231B1C927100411136 /* DetailViewController.m */; };
 		2DD3D5051B1F0746005E7435 /* Search.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD3D5041B1F0746005E7435 /* Search.m */; };
 		2DD5A09C1B1FD70800AE7181 /* NothingFoundCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DD5A09E1B1FD70800AE7181 /* NothingFoundCell.xib */; };
@@ -65,6 +66,8 @@
 		2D9CD3BC1B1FE3810000353A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/SearchResultCell.strings"; sourceTree = "<group>"; };
 		2D9CD3BE1B1FE3C50000353A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LandscapeViewController.xib; sourceTree = "<group>"; };
 		2D9CD3C11B1FE3C70000353A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LandscapeViewController.strings"; sourceTree = "<group>"; };
+		2DAD04FB1B1FEBC3004F50D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2DAD04FD1B1FEC79004F50D7 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		2DC75E221B1C927100411136 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		2DC75E231B1C927100411136 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		2DD3D5031B1F0746005E7435 /* Search.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Search.h; sourceTree = "<group>"; };
@@ -151,6 +154,7 @@
 		2D63F1981B152F6000E121DD /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2DAD04FA1B1FEBC3004F50D7 /* Localizable.strings */,
 				2D63F1991B152F6000E121DD /* Info.plist */,
 				2D63F19A1B152F6000E121DD /* main.m */,
 			);
@@ -279,6 +283,7 @@
 				2DD5A0A11B1FDCBF00AE7181 /* LoadingCell.xib in Resources */,
 				2D9CD3B81B1FE37F0000353A /* SearchResultCell.xib in Resources */,
 				2DD5A09C1B1FD70800AE7181 /* NothingFoundCell.xib in Resources */,
+				2DAD04FC1B1FEBC3004F50D7 /* Localizable.strings in Resources */,
 				2D9CD3BD1B1FE3C50000353A /* LandscapeViewController.xib in Resources */,
 				2D9CD3AE1B1FDF9A0000353A /* SearchViewController.xib in Resources */,
 			);
@@ -396,6 +401,15 @@
 				2D9CD3C11B1FE3C70000353A /* zh-Hans */,
 			);
 			name = LandscapeViewController.xib;
+			sourceTree = "<group>";
+		};
+		2DAD04FA1B1FEBC3004F50D7 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2DAD04FB1B1FEBC3004F50D7 /* Base */,
+				2DAD04FD1B1FEC79004F50D7 /* zh-Hans */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 		2DD5A09E1B1FD70800AE7181 /* NothingFoundCell.xib */ = {

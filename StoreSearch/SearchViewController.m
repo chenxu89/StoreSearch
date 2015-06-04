@@ -165,10 +165,10 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 - (void)showNetworkError
 {
     UIAlertView *alertView = [[UIAlertView alloc]
-                              initWithTitle:@"Whoops..."
-                              message:@"There was error reading from the iTunes store. Please try again"
+                              initWithTitle:NSLocalizedString(@"Whoops...", @"Error alert: title")
+                              message:NSLocalizedString(@"There was error reading from the iTunes store. Please try again", @"Error alert: message")
                               delegate:nil
-                              cancelButtonTitle:@"OK"
+                              cancelButtonTitle:NSLocalizedString(@"OK", @"Error alert: cancelButtonBTitle")
                               otherButtonTitles:nil];
     
     [alertView show];
