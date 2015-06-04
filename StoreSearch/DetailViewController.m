@@ -22,6 +22,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *kindLabel;
 @property (weak, nonatomic) IBOutlet UILabel *genreLabel;
 @property (weak, nonatomic) IBOutlet UIButton *priceButton;
+@property (weak, nonatomic) IBOutlet UIButton *closeButton;
+@property (strong, nonatomic) UIPopoverController *masterPopoverController;
 
 @end
 
@@ -41,16 +43,36 @@
     //rounded corners
     self.popupView.layer.cornerRadius = 10.0f;
     
-    UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(close:)];
-    gestureRecognizer.cancelsTouchesInView = NO;
-    gestureRecognizer.delegate = self;
-    [self.view addGestureRecognizer:gestureRecognizer];
+    //ipad situation
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"LandscapeBackground"]];
+        self.closeButton.hidden = YES;
+        self.popupView.hidden = (self.searchResult == nil);
+    
+    //iphone situation
+    }else{
+        UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(close:)];
+        gestureRecognizer.cancelsTouchesInView = NO;
+        gestureRecognizer.delegate = self;
+        [self.view addGestureRecognizer:gestureRecognizer];
+        
+        self.view.backgroundColor = [UIColor clearColor];
+    }
     
     if (self.searchResult != nil) {
         [self updateUI];
     }
-    
-    self.view.backgroundColor = [UIColor clearColor];
+}
+
+- (void)setSearchResult:(SearchResult *)searchResult
+{
+    if (_searchResult != searchResult) {
+        _searchResult = searchResult;
+        
+        if ([self isViewLoaded]) {
+            [self updateUI];
+        }
+    }
 }
 
 - (void)updateUI
@@ -78,6 +100,11 @@
     [self.priceButton setTitle:priceText forState:UIControlStateNormal];
     
     [self.artworkImageView setImageWithURL:[NSURL URLWithString:self.searchResult.artworkURL100]];
+    
+    //This makes the view visible when on the iPad, cause in viewDidLoad you make the view invisible.
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        self.popupView.hidden = NO;
+    }
 }
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer
@@ -161,14 +188,24 @@
     [self.artworkImageView cancelImageRequestOperation];
 }
 
-/*
-#pragma mark - Navigation
+#pragma mark - UISplitViewControllerDelegate
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)splitViewController:(UISplitViewController *)svc
+     willHideViewController:(UIViewController *)aViewController
+          withBarButtonItem:(UIBarButtonItem *)barButtonItem
+       forPopoverController:(UIPopoverController *)pc
+{
+    barButtonItem.title = NSLocalizedString(@"Search", @"Split-view master button");
+    [self.navigationItem setLeftBarButtonItem:barButtonItem animated:YES];
+    self.masterPopoverController = pc;
 }
-*/
+
+- (void)splitViewController:(UISplitViewController *)svc
+     willShowViewController:(UIViewController *)aViewController
+  invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem
+{
+    [self.navigationItem setLeftBarButtonItem:nil animated:YES];
+    self.masterPopoverController = nil;
+}
 
 @end

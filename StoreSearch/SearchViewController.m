@@ -29,7 +29,6 @@ static NSString * const LoadingCellIdentifier = @"LoadingCell";
     Search *_search;
     LandscapeViewController *_landscapeViewController;
     UIStatusBarStyle _statusBarStyle;
-    __weak DetailViewController *_detailViewController;
 }
 
 - (void)viewDidLoad {
@@ -101,17 +100,26 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self.searchBar resignFirstResponder];
     
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
-    DetailViewController *controller = [[DetailViewController alloc] initWithNibName:@"DetailViewController" bundle:nil];
-    
-    //must put before the line :"controller.view.frame = self.view.frame;"
     SearchResult *searchResult = _search.searchResults[indexPath.row];
-    controller.searchResult = searchResult;
-
-    [controller presentInParentViewController:self];
     
-    _detailViewController = controller;
+    //for iphone, create a new DetailViewController and bounce it up.
+    if (UI_USER_INTERFACE_IDIOM() != UIUserInterfaceIdiomPad) {
+        
+        //don't put it in ipad situation, cause you should let the selected row keep selected status.
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+        
+        DetailViewController *controller = [[DetailViewController alloc] initWithNibName:@"DetailViewController" bundle:nil];
+        
+        controller.searchResult = searchResult;
+        
+        [controller presentInParentViewController:self];
+        
+        self.detailViewController = controller;
+        
+    //for ipad, update the old DetailViewController.
+    }else{
+        self.detailViewController.searchResult = searchResult;
+    }
 }
 
 //self-produced, not necessary
@@ -186,10 +194,12 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [super willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
     
-    if (UIInterfaceOrientationIsPortrait(toInterfaceOrientation)) {
-        [self hideLandscapeViewWithDuration:duration];
-    }else{
-        [self showLandscapeViewWithDuration:duration];
+    if (UI_USER_INTERFACE_IDIOM() != UIUserInterfaceIdiomPad) {
+        if (UIInterfaceOrientationIsPortrait(toInterfaceOrientation)) {
+            [self hideLandscapeViewWithDuration:duration];
+        }else{
+            [self showLandscapeViewWithDuration:duration];
+        }
     }
 }
 
@@ -216,7 +226,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
             
             [self.searchBar resignFirstResponder];
             
-            [_detailViewController dismissFromParentViewControllerWithAnimationType:DetailViewControllerAnimationTypeFade];
+            [self.detailViewController dismissFromParentViewControllerWithAnimationType:DetailViewControllerAnimationTypeFade];
             
         } completion:^(BOOL finished) {
             [_landscapeViewController didMoveToParentViewController:self];
