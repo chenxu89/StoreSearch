@@ -46,8 +46,11 @@ static NSString * const LoadingCellIdentifier = @"LoadingCell";
     
     self.tableView.rowHeight = 80;
     
-    //the keyboard will be immediately visible when you start the app
-    [self.searchBar becomeFirstResponder];
+    //if iphone, the keyboard will be immediately visible when you start the app
+    if (UI_USER_INTERFACE_IDIOM() != UIUserInterfaceIdiomPad) {
+        [self.searchBar becomeFirstResponder];
+    }
+    
     
     cellNib = [UINib nibWithNibName:LoadingCellIdentifier bundle:nil];
     [self.tableView registerNib:cellNib forCellReuseIdentifier:LoadingCellIdentifier];

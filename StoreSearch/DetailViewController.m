@@ -48,6 +48,9 @@
         self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"LandscapeBackground"]];
         self.closeButton.hidden = YES;
         self.popupView.hidden = (self.searchResult == nil);
+        
+        //the app shows its local name in the big navigation bar on top of the detail pane.
+        self.title = [[[NSBundle mainBundle] localizedInfoDictionary] objectForKey:@"CFBundleDisplayName"];
     
     //iphone situation
     }else{
@@ -101,9 +104,12 @@
     
     [self.artworkImageView setImageWithURL:[NSURL URLWithString:self.searchResult.artworkURL100]];
     
-    //This makes the view visible when on the iPad, cause in viewDidLoad you make the view invisible.
+    
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        //This makes the view visible when on the iPad, cause in viewDidLoad you make the view invisible.
         self.popupView.hidden = NO;
+        //hide the popover after the user makes a selection.
+        [self.masterPopoverController dismissPopoverAnimated:YES];
     }
 }
 
