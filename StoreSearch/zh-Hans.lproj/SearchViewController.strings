@@ -1,0 +1,15 @@
+
+/* Class = "UISegmentedControl"; Pts-6Q-QYd.segmentTitles[0] = "All"; ObjectID = "Pts-6Q-QYd"; */
+"Pts-6Q-QYd.segmentTitles[0]" = "全部";
+
+/* Class = "UISegmentedControl"; Pts-6Q-QYd.segmentTitles[1] = "Music"; ObjectID = "Pts-6Q-QYd"; */
+"Pts-6Q-QYd.segmentTitles[1]" = "音乐";
+
+/* Class = "UISegmentedControl"; Pts-6Q-QYd.segmentTitles[2] = "Software"; ObjectID = "Pts-6Q-QYd"; */
+"Pts-6Q-QYd.segmentTitles[2]" = "软件";
+
+/* Class = "UISegmentedControl"; Pts-6Q-QYd.segmentTitles[3] = "E-Books"; ObjectID = "Pts-6Q-QYd"; */
+"Pts-6Q-QYd.segmentTitles[3]" = "电子书";
+
+/* Class = "UISearchBar"; placeholder = "App name, artist, song, album, ebook"; ObjectID = "x4V-kJ-3G0"; */
+"x4V-kJ-3G0.placeholder" = "音乐，歌手，软件，电子书，作者";

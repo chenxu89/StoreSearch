@@ -9,22 +9,21 @@
 /* Begin PBXBuildFile section */
 		2D19C9B71B1D5B3A002A45BB /* GradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D19C9B61B1D5B3A002A45BB /* GradientView.m */; };
 		2D19C9BB1B1D92FF002A45BB /* LandscapeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D19C9B91B1D92FF002A45BB /* LandscapeViewController.m */; };
-		2D19C9BC1B1D92FF002A45BB /* LandscapeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D19C9BA1B1D92FF002A45BB /* LandscapeViewController.xib */; };
 		2D63F19B1B152F6000E121DD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D63F19A1B152F6000E121DD /* main.m */; };
 		2D63F19E1B152F6000E121DD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D63F19D1B152F6000E121DD /* AppDelegate.m */; };
 		2D63F1A61B152F6000E121DD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D63F1A51B152F6000E121DD /* Images.xcassets */; };
-		2D63F1A91B152F6000E121DD /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D63F1A71B152F6000E121DD /* LaunchScreen.xib */; };
 		2D63F1B51B152F6000E121DD /* StoreSearchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D63F1B41B152F6000E121DD /* StoreSearchTests.m */; };
 		2D63F1C11B1531DA00E121DD /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D63F1BF1B1531DA00E121DD /* SearchViewController.m */; };
-		2D63F1C21B1531DA00E121DD /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D63F1C01B1531DA00E121DD /* SearchViewController.xib */; };
 		2D63F1C51B155F2800E121DD /* SearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D63F1C41B155F2800E121DD /* SearchResult.m */; };
-		2D63F1C71B157E5E00E121DD /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D63F1C61B157E5E00E121DD /* SearchResultCell.xib */; };
 		2D63F1CA1B15875B00E121DD /* SearchResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D63F1C91B15875B00E121DD /* SearchResultCell.m */; };
-		2D63F1CC1B1592BC00E121DD /* NothingFoundCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D63F1CB1B1592BC00E121DD /* NothingFoundCell.xib */; };
+		2D9CD3AE1B1FDF9A0000353A /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D9CD3B01B1FDF9A0000353A /* SearchViewController.xib */; };
+		2D9CD3B31B1FE1E30000353A /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D9CD3B51B1FE1E30000353A /* DetailViewController.xib */; };
+		2D9CD3B81B1FE37F0000353A /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D9CD3BA1B1FE37F0000353A /* SearchResultCell.xib */; };
+		2D9CD3BD1B1FE3C50000353A /* LandscapeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D9CD3BF1B1FE3C50000353A /* LandscapeViewController.xib */; };
 		2DC75E251B1C927100411136 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC75E231B1C927100411136 /* DetailViewController.m */; };
-		2DC75E261B1C927100411136 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DC75E241B1C927100411136 /* DetailViewController.xib */; };
 		2DD3D5051B1F0746005E7435 /* Search.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD3D5041B1F0746005E7435 /* Search.m */; };
-		2DDA4ABB1B1AD41F003299A8 /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DDA4ABA1B1AD41F003299A8 /* LoadingCell.xib */; };
+		2DD5A09C1B1FD70800AE7181 /* NothingFoundCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DD5A09E1B1FD70800AE7181 /* NothingFoundCell.xib */; };
+		2DD5A0A11B1FDCBF00AE7181 /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DD5A0A31B1FDCBF00AE7181 /* LoadingCell.xib */; };
 		E070BB668683D9A54472DBBA /* libPods-StoreSearch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 641B2217545A0403AF25339D /* libPods-StoreSearch.a */; };
 /* End PBXBuildFile section */
 
@@ -43,32 +42,37 @@
 		2D19C9B61B1D5B3A002A45BB /* GradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GradientView.m; sourceTree = "<group>"; };
 		2D19C9B81B1D92FF002A45BB /* LandscapeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LandscapeViewController.h; sourceTree = "<group>"; };
 		2D19C9B91B1D92FF002A45BB /* LandscapeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LandscapeViewController.m; sourceTree = "<group>"; };
-		2D19C9BA1B1D92FF002A45BB /* LandscapeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LandscapeViewController.xib; sourceTree = "<group>"; };
 		2D63F1951B152F6000E121DD /* StoreSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoreSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D63F1991B152F6000E121DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2D63F19A1B152F6000E121DD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2D63F19C1B152F6000E121DD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2D63F19D1B152F6000E121DD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		2D63F1A51B152F6000E121DD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		2D63F1A81B152F6000E121DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		2D63F1AE1B152F6000E121DD /* StoreSearchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StoreSearchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D63F1B31B152F6000E121DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2D63F1B41B152F6000E121DD /* StoreSearchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StoreSearchTests.m; sourceTree = "<group>"; };
 		2D63F1BE1B1531DA00E121DD /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		2D63F1BF1B1531DA00E121DD /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
-		2D63F1C01B1531DA00E121DD /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 		2D63F1C31B155F2800E121DD /* SearchResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResult.h; sourceTree = "<group>"; };
 		2D63F1C41B155F2800E121DD /* SearchResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResult.m; sourceTree = "<group>"; };
-		2D63F1C61B157E5E00E121DD /* SearchResultCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchResultCell.xib; sourceTree = "<group>"; };
 		2D63F1C81B15875B00E121DD /* SearchResultCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultCell.h; sourceTree = "<group>"; };
 		2D63F1C91B15875B00E121DD /* SearchResultCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultCell.m; sourceTree = "<group>"; };
-		2D63F1CB1B1592BC00E121DD /* NothingFoundCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NothingFoundCell.xib; sourceTree = "<group>"; };
+		2D9CD3AF1B1FDF9A0000353A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SearchViewController.xib; sourceTree = "<group>"; };
+		2D9CD3B21B1FDF9D0000353A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/SearchViewController.strings"; sourceTree = "<group>"; };
+		2D9CD3B41B1FE1E30000353A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/DetailViewController.xib; sourceTree = "<group>"; };
+		2D9CD3B71B1FE1E50000353A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/DetailViewController.strings"; sourceTree = "<group>"; };
+		2D9CD3B91B1FE37F0000353A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SearchResultCell.xib; sourceTree = "<group>"; };
+		2D9CD3BC1B1FE3810000353A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/SearchResultCell.strings"; sourceTree = "<group>"; };
+		2D9CD3BE1B1FE3C50000353A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LandscapeViewController.xib; sourceTree = "<group>"; };
+		2D9CD3C11B1FE3C70000353A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LandscapeViewController.strings"; sourceTree = "<group>"; };
 		2DC75E221B1C927100411136 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		2DC75E231B1C927100411136 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
-		2DC75E241B1C927100411136 /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
 		2DD3D5031B1F0746005E7435 /* Search.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Search.h; sourceTree = "<group>"; };
 		2DD3D5041B1F0746005E7435 /* Search.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Search.m; sourceTree = "<group>"; };
-		2DDA4ABA1B1AD41F003299A8 /* LoadingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingCell.xib; sourceTree = "<group>"; };
+		2DD5A09F1B1FD83600AE7181 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hans"; path = "zh-Hans.lproj/NothingFoundCell.xib"; sourceTree = "<group>"; };
+		2DD5A0A01B1FDC6300AE7181 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/NothingFoundCell.xib; sourceTree = "<group>"; };
+		2DD5A0A21B1FDCBF00AE7181 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LoadingCell.xib; sourceTree = "<group>"; };
+		2DD5A0A51B1FDCF300AE7181 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LoadingCell.strings"; sourceTree = "<group>"; };
 		641B2217545A0403AF25339D /* libPods-StoreSearch.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-StoreSearch.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		94C14715D350891D86B39A4C /* Pods-StoreSearch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoreSearch.release.xcconfig"; path = "Pods/Target Support Files/Pods-StoreSearch/Pods-StoreSearch.release.xcconfig"; sourceTree = "<group>"; };
 		D291C1B22203F054E139D631 /* Pods-StoreSearch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoreSearch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StoreSearch/Pods-StoreSearch.debug.xcconfig"; sourceTree = "<group>"; };
@@ -119,28 +123,27 @@
 				2D63F19C1B152F6000E121DD /* AppDelegate.h */,
 				2D63F19D1B152F6000E121DD /* AppDelegate.m */,
 				2D63F1A51B152F6000E121DD /* Images.xcassets */,
-				2D63F1A71B152F6000E121DD /* LaunchScreen.xib */,
 				2D63F1981B152F6000E121DD /* Supporting Files */,
 				2D63F1BE1B1531DA00E121DD /* SearchViewController.h */,
 				2D63F1BF1B1531DA00E121DD /* SearchViewController.m */,
-				2D63F1C01B1531DA00E121DD /* SearchViewController.xib */,
+				2D9CD3B01B1FDF9A0000353A /* SearchViewController.xib */,
 				2DD3D5031B1F0746005E7435 /* Search.h */,
 				2DD3D5041B1F0746005E7435 /* Search.m */,
 				2D63F1C31B155F2800E121DD /* SearchResult.h */,
 				2D63F1C41B155F2800E121DD /* SearchResult.m */,
-				2D63F1C61B157E5E00E121DD /* SearchResultCell.xib */,
+				2D9CD3BA1B1FE37F0000353A /* SearchResultCell.xib */,
 				2D63F1C81B15875B00E121DD /* SearchResultCell.h */,
 				2D63F1C91B15875B00E121DD /* SearchResultCell.m */,
-				2D63F1CB1B1592BC00E121DD /* NothingFoundCell.xib */,
-				2DDA4ABA1B1AD41F003299A8 /* LoadingCell.xib */,
+				2DD5A09E1B1FD70800AE7181 /* NothingFoundCell.xib */,
+				2DD5A0A31B1FDCBF00AE7181 /* LoadingCell.xib */,
 				2DC75E221B1C927100411136 /* DetailViewController.h */,
 				2DC75E231B1C927100411136 /* DetailViewController.m */,
-				2DC75E241B1C927100411136 /* DetailViewController.xib */,
+				2D9CD3B51B1FE1E30000353A /* DetailViewController.xib */,
 				2D19C9B51B1D5B3A002A45BB /* GradientView.h */,
 				2D19C9B61B1D5B3A002A45BB /* GradientView.m */,
 				2D19C9B81B1D92FF002A45BB /* LandscapeViewController.h */,
 				2D19C9B91B1D92FF002A45BB /* LandscapeViewController.m */,
-				2D19C9BA1B1D92FF002A45BB /* LandscapeViewController.xib */,
+				2D9CD3BF1B1FE3C50000353A /* LandscapeViewController.xib */,
 			);
 			path = StoreSearch;
 			sourceTree = "<group>";
@@ -252,6 +255,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				"zh-Hans",
 				Base,
 			);
 			mainGroup = 2D63F18C1B152F6000E121DD;
@@ -270,14 +274,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2D63F1A91B152F6000E121DD /* LaunchScreen.xib in Resources */,
 				2D63F1A61B152F6000E121DD /* Images.xcassets in Resources */,
-				2DC75E261B1C927100411136 /* DetailViewController.xib in Resources */,
-				2DDA4ABB1B1AD41F003299A8 /* LoadingCell.xib in Resources */,
-				2D63F1C71B157E5E00E121DD /* SearchResultCell.xib in Resources */,
-				2D63F1CC1B1592BC00E121DD /* NothingFoundCell.xib in Resources */,
-				2D19C9BC1B1D92FF002A45BB /* LandscapeViewController.xib in Resources */,
-				2D63F1C21B1531DA00E121DD /* SearchViewController.xib in Resources */,
+				2D9CD3B31B1FE1E30000353A /* DetailViewController.xib in Resources */,
+				2DD5A0A11B1FDCBF00AE7181 /* LoadingCell.xib in Resources */,
+				2D9CD3B81B1FE37F0000353A /* SearchResultCell.xib in Resources */,
+				2DD5A09C1B1FD70800AE7181 /* NothingFoundCell.xib in Resources */,
+				2D9CD3BD1B1FE3C50000353A /* LandscapeViewController.xib in Resources */,
+				2D9CD3AE1B1FDF9A0000353A /* SearchViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,12 +362,58 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		2D63F1A71B152F6000E121DD /* LaunchScreen.xib */ = {
+		2D9CD3B01B1FDF9A0000353A /* SearchViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				2D63F1A81B152F6000E121DD /* Base */,
+				2D9CD3AF1B1FDF9A0000353A /* Base */,
+				2D9CD3B21B1FDF9D0000353A /* zh-Hans */,
 			);
-			name = LaunchScreen.xib;
+			name = SearchViewController.xib;
+			sourceTree = "<group>";
+		};
+		2D9CD3B51B1FE1E30000353A /* DetailViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2D9CD3B41B1FE1E30000353A /* Base */,
+				2D9CD3B71B1FE1E50000353A /* zh-Hans */,
+			);
+			name = DetailViewController.xib;
+			sourceTree = "<group>";
+		};
+		2D9CD3BA1B1FE37F0000353A /* SearchResultCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2D9CD3B91B1FE37F0000353A /* Base */,
+				2D9CD3BC1B1FE3810000353A /* zh-Hans */,
+			);
+			name = SearchResultCell.xib;
+			sourceTree = "<group>";
+		};
+		2D9CD3BF1B1FE3C50000353A /* LandscapeViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2D9CD3BE1B1FE3C50000353A /* Base */,
+				2D9CD3C11B1FE3C70000353A /* zh-Hans */,
+			);
+			name = LandscapeViewController.xib;
+			sourceTree = "<group>";
+		};
+		2DD5A09E1B1FD70800AE7181 /* NothingFoundCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2DD5A09F1B1FD83600AE7181 /* zh-Hans */,
+				2DD5A0A01B1FDC6300AE7181 /* Base */,
+			);
+			name = NothingFoundCell.xib;
+			sourceTree = "<group>";
+		};
+		2DD5A0A31B1FDCBF00AE7181 /* LoadingCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2DD5A0A21B1FDCBF00AE7181 /* Base */,
+				2DD5A0A51B1FDCF300AE7181 /* zh-Hans */,
+			);
+			name = LoadingCell.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -455,9 +504,16 @@
 			baseConfigurationReference = D291C1B22203F054E139D631 /* Pods-StoreSearch.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_STATIC_ANALYZER_MODE = deep;
 				INFOPLIST_FILE = StoreSearch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				RUN_CLANG_STATIC_ANALYZER = YES;
+				WARNING_CFLAGS = (
+					"-Wall",
+					"-Wextra",
+					"-Wno-unused-parameter",
+				);
 			};
 			name = Debug;
 		};
@@ -466,9 +522,16 @@
 			baseConfigurationReference = 94C14715D350891D86B39A4C /* Pods-StoreSearch.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_STATIC_ANALYZER_MODE = deep;
 				INFOPLIST_FILE = StoreSearch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				RUN_CLANG_STATIC_ANALYZER = YES;
+				WARNING_CFLAGS = (
+					"-Wall",
+					"-Wextra",
+					"-Wno-unused-parameter",
+				);
 			};
 			name = Release;
 		};
