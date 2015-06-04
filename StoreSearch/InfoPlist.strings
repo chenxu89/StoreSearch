@@ -1,0 +1,10 @@
+/* 
+  InfoPlist.strings
+  StoreSearch
+
+  Created by 陈旭 on 6/4/15.
+  Copyright (c) 2015 陈旭. All rights reserved.
+*/
+
+/* Localized versions of Info.plist keys */
+CFBundleDisplayName = "苹果商店";
