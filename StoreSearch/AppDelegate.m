@@ -40,8 +40,10 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
         
         DetailViewController *detailViewController = [[DetailViewController alloc] initWithNibName:@"DetailViewController" bundle:nil];
         
+        //for put the Search button
         UINavigationController *detailNavigationController = [[UINavigationController alloc] initWithRootViewController:detailViewController];
         
+        //for hide or show the master pane in portrait mode
         self.splitViewController.delegate = detailViewController;
         
         self.splitViewController.viewControllers = @[self.searchViewController, detailNavigationController];

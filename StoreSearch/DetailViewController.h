@@ -27,4 +27,6 @@ typedef NS_ENUM(NSUInteger, DetailViewControllerAnimationType){
 - (void)bounceAnimationForView:(UIView *)view
                   withDelegate:(UIViewController *)delegate;
 
+- (void)sendSupportEmail;
+
 @end

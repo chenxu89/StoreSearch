@@ -27,6 +27,8 @@
 		2DD5A09C1B1FD70800AE7181 /* NothingFoundCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DD5A09E1B1FD70800AE7181 /* NothingFoundCell.xib */; };
 		2DD5A0A11B1FDCBF00AE7181 /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DD5A0A31B1FDCBF00AE7181 /* LoadingCell.xib */; };
 		2DDF9CA31B211703005F53BB /* DetailViewController~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DDF9CA11B211703005F53BB /* DetailViewController~ipad.xib */; };
+		2DDF9CA61B2164BE005F53BB /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DDF9CA51B2164BE005F53BB /* MenuViewController.m */; };
+		2DDF9CA81B219B2B005F53BB /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DDF9CA71B219B2B005F53BB /* MessageUI.framework */; };
 		E070BB668683D9A54472DBBA /* libPods-StoreSearch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 641B2217545A0403AF25339D /* libPods-StoreSearch.a */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +83,9 @@
 		2DD5A0A21B1FDCBF00AE7181 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LoadingCell.xib; sourceTree = "<group>"; };
 		2DD5A0A51B1FDCF300AE7181 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LoadingCell.strings"; sourceTree = "<group>"; };
 		2DDF9CA21B211703005F53BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = "Base.lproj/DetailViewController~ipad.xib"; sourceTree = "<group>"; };
+		2DDF9CA41B2164BE005F53BB /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
+		2DDF9CA51B2164BE005F53BB /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
+		2DDF9CA71B219B2B005F53BB /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		641B2217545A0403AF25339D /* libPods-StoreSearch.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-StoreSearch.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		94C14715D350891D86B39A4C /* Pods-StoreSearch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoreSearch.release.xcconfig"; path = "Pods/Target Support Files/Pods-StoreSearch/Pods-StoreSearch.release.xcconfig"; sourceTree = "<group>"; };
 		D291C1B22203F054E139D631 /* Pods-StoreSearch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoreSearch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StoreSearch/Pods-StoreSearch.debug.xcconfig"; sourceTree = "<group>"; };
@@ -91,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2DDF9CA81B219B2B005F53BB /* MessageUI.framework in Frameworks */,
 				E070BB668683D9A54472DBBA /* libPods-StoreSearch.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -134,8 +140,6 @@
 				2D63F1981B152F6000E121DD /* Supporting Files */,
 				2D63F1BE1B1531DA00E121DD /* SearchViewController.h */,
 				2D63F1BF1B1531DA00E121DD /* SearchViewController.m */,
-				2DC75E221B1C927100411136 /* DetailViewController.h */,
-				2DC75E231B1C927100411136 /* DetailViewController.m */,
 				2D9CD3B01B1FDF9A0000353A /* SearchViewController.xib */,
 				2DD3D5031B1F0746005E7435 /* Search.h */,
 				2DD3D5041B1F0746005E7435 /* Search.m */,
@@ -146,13 +150,17 @@
 				2D63F1C91B15875B00E121DD /* SearchResultCell.m */,
 				2DD5A09E1B1FD70800AE7181 /* NothingFoundCell.xib */,
 				2DD5A0A31B1FDCBF00AE7181 /* LoadingCell.xib */,
-				2DDF9CA11B211703005F53BB /* DetailViewController~ipad.xib */,
+				2DC75E221B1C927100411136 /* DetailViewController.h */,
+				2DC75E231B1C927100411136 /* DetailViewController.m */,
 				2D9CD3B51B1FE1E30000353A /* DetailViewController.xib */,
+				2DDF9CA11B211703005F53BB /* DetailViewController~ipad.xib */,
 				2D19C9B51B1D5B3A002A45BB /* GradientView.h */,
 				2D19C9B61B1D5B3A002A45BB /* GradientView.m */,
 				2D19C9B81B1D92FF002A45BB /* LandscapeViewController.h */,
 				2D19C9B91B1D92FF002A45BB /* LandscapeViewController.m */,
 				2D9CD3BF1B1FE3C50000353A /* LandscapeViewController.xib */,
+				2DDF9CA41B2164BE005F53BB /* MenuViewController.h */,
+				2DDF9CA51B2164BE005F53BB /* MenuViewController.m */,
 			);
 			path = StoreSearch;
 			sourceTree = "<group>";
@@ -197,6 +205,7 @@
 		73E23839A40D96C4ADB8AAEB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2DDF9CA71B219B2B005F53BB /* MessageUI.framework */,
 				641B2217545A0403AF25339D /* libPods-StoreSearch.a */,
 			);
 			name = Frameworks;
@@ -354,6 +363,7 @@
 				2D19C9B71B1D5B3A002A45BB /* GradientView.m in Sources */,
 				2D19C9BB1B1D92FF002A45BB /* LandscapeViewController.m in Sources */,
 				2DC75E251B1C927100411136 /* DetailViewController.m in Sources */,
+				2DDF9CA61B2164BE005F53BB /* MenuViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

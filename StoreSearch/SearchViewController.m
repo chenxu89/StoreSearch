@@ -124,8 +124,6 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
     }else{
         //invoke the setSearchResult method and then updateUI
         self.detailViewController.searchResult = searchResult;
-        //make popupView bounce
-        //[self.detailViewController bounceAnimationForView:self.detailViewController.popupView withDelegate:nil];
     }
 }
 

@@ -11,10 +11,10 @@
 #import "SearchResult.h"
 #import <AFNetworking/UIImageView+AFNetworking.h>
 #import "GradientView.h"
+#import "MenuViewController.h"
+#import <MessageUI/MessageUI.h>
 
-
-
-@interface DetailViewController () <UIGestureRecognizerDelegate>
+@interface DetailViewController () <UIGestureRecognizerDelegate, MFMailComposeViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *artworkImageView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
@@ -24,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *priceButton;
 @property (weak, nonatomic) IBOutlet UIButton *closeButton;
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
+@property (strong, nonatomic) UIPopoverController *menuPopoverController;
 
 @end
 
@@ -51,6 +52,9 @@
         
         //the app shows its local name in the big navigation bar on top of the detail pane.
         self.title = [[[NSBundle mainBundle] localizedInfoDictionary] objectForKey:@"CFBundleDisplayName"];
+        
+        //add a button to the navigation bar so that there is something to trigger the popover from.
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(menuButtonPressed:)];
     
     //iphone situation
     }else{
@@ -164,6 +168,48 @@
     [self dismissFromParentViewControllerWithAnimationType:DetailViewControllerAnimationTypeSlide];
 }
 
+- (void)menuButtonPressed:(UIBarButtonItem *)sender
+{
+    if ([self.menuPopoverController isPopoverVisible]) {
+        [self.menuPopoverController dismissPopoverAnimated:YES];
+    }else{
+        [self.menuPopoverController presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    }
+}
+
+//The creation of the popover object is done lazily by the self.menuPopoverController getter.
+- (UIPopoverController *)menuPopoverController
+{
+    if (_menuPopoverController == nil) {
+        MenuViewController *menuViewController = [[MenuViewController alloc] initWithStyle:UITableViewStyleGrouped];
+        
+        menuViewController.detailViewController = self;
+        
+        _menuPopoverController = [[UIPopoverController alloc] initWithContentViewController:menuViewController];
+    }
+    return _menuPopoverController;
+}
+
+- (void)sendSupportEmail
+{
+    [self.menuPopoverController dismissPopoverAnimated:YES];
+    
+    MFMailComposeViewController *controller = [[MFMailComposeViewController alloc] init];
+
+    controller.mailComposeDelegate = self;
+    
+    if (controller != nil) {
+        [controller setSubject:NSLocalizedString(@"Support Request", @"Email subject")];
+        [controller setToRecipients:@[@"your@email-address-here.com"]];
+        
+        //The modalPresentationStyle property determines how a modal view controller is presented on the iPad.  You can switch it from the default page sheet to a form sheet or full screen.
+        //controller.modalPresentationStyle = UIModalPresentationFormSheet;
+        //controller.modalPresentationStyle = UIModalPresentationFullScreen;
+        
+        [self presentViewController:controller animated:YES completion:nil];
+    }
+}
+
 #pragma mark - Animation
 
 //bounce animation
@@ -217,6 +263,8 @@
 
 #pragma mark - UISplitViewControllerDelegate
 
+//In portrait mode the master pane won’t be visible all the time, only when you tap a button. This brings up a so-called popover. The split-view controller takes care of most of this logic for you but you still need to put that button somewhere.
+
 - (void)splitViewController:(UISplitViewController *)svc
      willHideViewController:(UIViewController *)aViewController
           withBarButtonItem:(UIBarButtonItem *)barButtonItem
@@ -233,6 +281,25 @@
 {
     [self.navigationItem setLeftBarButtonItem:nil animated:YES];
     self.masterPopoverController = nil;
+}
+
+- (void)splitViewController:(UISplitViewController *)svc
+          popoverController:(UIPopoverController *)pc
+  willPresentViewController:(UIViewController *)aViewController
+{
+    //hide menu view popover
+    if ([self.menuPopoverController isPopoverVisible]) {
+        [self.menuPopoverController dismissPopoverAnimated:YES];
+    }
+}
+
+#pragma mark - MFMailComposeViewControllerDelegate
+
+- (void)mailComposeController:(MFMailComposeViewController *)controller
+          didFinishWithResult:(MFMailComposeResult)result
+                        error:(NSError *)error
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end
