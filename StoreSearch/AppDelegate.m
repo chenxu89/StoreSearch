@@ -34,7 +34,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     
     self.searchViewController = [[SearchViewController alloc] initWithNibName:@"SearchViewController" bundle:nil];
     
-    //figure out whether the app is running on the iPhone or on the iPad
+    //for ipad
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
         self.splitViewController = [[UISplitViewController alloc] init];
         
@@ -51,6 +51,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
         //give searchViewController a point to detailViewController.
         self.searchViewController.detailViewController = detailViewController;
         
+    //for iphone
     }else{
         self.window.rootViewController = self.searchViewController;
     }

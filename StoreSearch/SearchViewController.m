@@ -46,7 +46,7 @@ static NSString * const LoadingCellIdentifier = @"LoadingCell";
     
     self.tableView.rowHeight = 80;
     
-    //if iphone, the keyboard will be immediately visible when you start the app
+    //for iphone, the keyboard will be immediately visible when you start the app
     if (UI_USER_INTERFACE_IDIOM() != UIUserInterfaceIdiomPad) {
         [self.searchBar becomeFirstResponder];
     }
@@ -105,7 +105,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
     
     SearchResult *searchResult = _search.searchResults[indexPath.row];
     
-    //for iphone, create a new DetailViewController and bounce it up.
+    //for iphone, each select will create a new DetailViewController and bounce it up.
     if (UI_USER_INTERFACE_IDIOM() != UIUserInterfaceIdiomPad) {
         
         //don't put it in ipad situation, cause you should let the selected row keep selected status.
@@ -120,9 +120,12 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
         
         self.detailViewController = controller;
         
-    //for ipad, update the old DetailViewController.
+    //for ipad, not create new DetailViewController, just update UI.
     }else{
+        //invoke the setSearchResult method and then updateUI
         self.detailViewController.searchResult = searchResult;
+        //make popupView bounce
+        //[self.detailViewController bounceAnimationForView:self.detailViewController.popupView withDelegate:nil];
     }
 }
 

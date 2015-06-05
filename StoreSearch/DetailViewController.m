@@ -15,7 +15,7 @@
 
 
 @interface DetailViewController () <UIGestureRecognizerDelegate>
-@property (nonatomic, weak) IBOutlet UIView *popupView;
+
 @property (weak, nonatomic) IBOutlet UIImageView *artworkImageView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *artistNameLabel;
@@ -67,6 +67,19 @@
     }
 }
 
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer
+       shouldReceiveTouch:(UITouch *)touch
+{
+    return (touch.view == self.view);
+}
+
+- (void)dealloc
+{
+    NSLog(@"dealloc %@", self);
+    
+    [self.artworkImageView cancelImageRequestOperation];
+}
+
 - (void)setSearchResult:(SearchResult *)searchResult
 {
     if (_searchResult != searchResult) {
@@ -74,6 +87,7 @@
         
         if ([self isViewLoaded]) {
             [self updateUI];
+            
         }
     }
 }
@@ -106,39 +120,31 @@
     
     //ipad situation
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-        //This makes the view visible when on the iPad, cause in viewDidLoad you make the view invisible.
-        self.popupView.hidden = NO;
         //hide the popover after the user makes a selection.
         [self.masterPopoverController dismissPopoverAnimated:YES];
+        
+        //make popupView bounce
+        if (self.popupView.hidden) {
+            [self bounceAnimationForView:self.popupView withDelegate:nil];
+        }
+        //In viewDidLoad you make the view invisible, now let it visable.
+        self.popupView.hidden = NO;
     }
-}
-
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer
-       shouldReceiveTouch:(UITouch *)touch
-{
-    return (touch.view == self.view);
 }
 
 - (void)presentInParentViewController:(UIViewController *)parentViewController
 {
-    //create the background view: GradientView
+    //create the background view: GradientView, it and detailview
     _gradientView = [[GradientView alloc] initWithFrame:parentViewController.view.bounds];
     [parentViewController.view addSubview:_gradientView];
     
-    //the pop-up view bounces into the main view.
     self.view.frame = parentViewController.view.bounds;
+    //That’s first two parts of the three steps of embedding one view controller into another
     [parentViewController.view addSubview:self.view];
     [parentViewController addChildViewController:self];
     
-    CAKeyframeAnimation *bounceAnimation = [CAKeyframeAnimation animationWithKeyPath:@"transform.scale"];
-    bounceAnimation.duration = 0.4;
-    bounceAnimation.delegate = self;
-    bounceAnimation.values = @[ @0.7, @1.2, @0.9, @1.0 ];
-    bounceAnimation.keyTimes = @[ @0.0, @0.334, @0.666, @1.0 ];
-    
-    bounceAnimation.timingFunctions = @[[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut], [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut], [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
-    
-    [self.view.layer addAnimation:bounceAnimation forKey:@"bounceAnimation"];
+    //the detail view bounces.
+    [self bounceAnimationForView:self.view withDelegate:self];
     
     //the GradientView fade in
     CABasicAnimation *fadeAnimation = [CABasicAnimation animationWithKeyPath:@"opacity"];
@@ -148,9 +154,9 @@
     [_gradientView.layer addAnimation:fadeAnimation forKey:@"fadeAnimation"];
 }
 
-- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag
+- (IBAction)openInStore:(id)sender
 {
-    [self didMoveToParentViewController:self.parentViewController];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.searchResult.storeURL]];
 }
 
 - (IBAction)close:(id)sender
@@ -158,6 +164,32 @@
     [self dismissFromParentViewControllerWithAnimationType:DetailViewControllerAnimationTypeSlide];
 }
 
+#pragma mark - Animation
+
+//bounce animation
+- (void)bounceAnimationForView:(UIView *)view
+              withDelegate:(UIViewController *)delegate
+{
+    CAKeyframeAnimation *bounceAnimation = [CAKeyframeAnimation animationWithKeyPath:@"transform.scale"];
+    bounceAnimation.duration = 0.4;
+    //By making DetailViewController the delegate of the CAKeyframeAnimation, you will be told when the animation stopped. at that point you must call the didMoveToParentViewController: method.
+    bounceAnimation.delegate = delegate;
+    bounceAnimation.values = @[ @0.7, @1.2, @0.9, @1.0 ];
+    bounceAnimation.keyTimes = @[ @0.0, @0.334, @0.666, @1.0 ];
+    
+    bounceAnimation.timingFunctions = @[[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut], [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut], [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
+    
+    [view.layer addAnimation:bounceAnimation forKey:@"bounceAnimation"];
+}
+
+//CAKeyframeAnimation delegate method
+- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag
+{
+    //That’s last part of the three steps of embedding one view controller into another
+    [self didMoveToParentViewController:self.parentViewController];
+}
+
+//slide and fade animation
 - (void)dismissFromParentViewControllerWithAnimationType:(DetailViewControllerAnimationType)animationType
 {
     [self willMoveToParentViewController:nil];
@@ -171,7 +203,7 @@
         }else{
             self.view.alpha = 0.0f;
         }
-
+        
         //animate the gradient view fade out.
         _gradientView.alpha = 0.0f;
         
@@ -181,18 +213,6 @@
         
         [_gradientView removeFromSuperview];
     }];
-}
-
-- (IBAction)openInStore:(id)sender
-{
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.searchResult.storeURL]];
-}
-
-- (void)dealloc
-{
-    NSLog(@"dealloc %@", self);
-    
-    [self.artworkImageView cancelImageRequestOperation];
 }
 
 #pragma mark - UISplitViewControllerDelegate
