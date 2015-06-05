@@ -113,8 +113,9 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
         
         DetailViewController *controller = [[DetailViewController alloc] initWithNibName:@"DetailViewController" bundle:nil];
         
+        //update data and UI
         controller.searchResult = searchResult;
-        
+        //Animation
         [controller presentInParentViewController:self];
         
         self.detailViewController = controller;

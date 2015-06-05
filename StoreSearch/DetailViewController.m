@@ -46,7 +46,7 @@
     //ipad situation
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
         self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"LandscapeBackground"]];
-        self.closeButton.hidden = YES;
+
         self.popupView.hidden = (self.searchResult == nil);
         
         //the app shows its local name in the big navigation bar on top of the detail pane.
@@ -104,7 +104,7 @@
     
     [self.artworkImageView setImageWithURL:[NSURL URLWithString:self.searchResult.artworkURL100]];
     
-    
+    //ipad situation
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
         //This makes the view visible when on the iPad, cause in viewDidLoad you make the view invisible.
         self.popupView.hidden = NO;
@@ -121,10 +121,11 @@
 
 - (void)presentInParentViewController:(UIViewController *)parentViewController
 {
+    //create the background view: GradientView
     _gradientView = [[GradientView alloc] initWithFrame:parentViewController.view.bounds];
     [parentViewController.view addSubview:_gradientView];
     
-    //the pop-up bounces into view.
+    //the pop-up view bounces into the main view.
     self.view.frame = parentViewController.view.bounds;
     [parentViewController.view addSubview:self.view];
     [parentViewController addChildViewController:self];
